@@ -1,10 +1,11 @@
 {
-  "service": "github-api-capability-probe",
-  "version": "2.0.0",
-  "description": "Machine-readable public endpoint describing this repository's current capability surface.",
-  "updated": "2026-10-02",
-  "repository": "https://github.com/maxnomadpro/max-github-test",
-  "capabilities": ["public-git-download", "raw-http-read"],
-  "limitations": ["no-payment-rail", "no-authenticated-customer-api"],
-  "usage": {"request": "GET /service.json", "content_type": "application/json"}
+  "name": "decision-window",
+  "version": "3.0.0",
+  "type": "machine-consumable-digital-product",
+  "description": "Versioned JSON contract for deterministic rolling-window event aggregation and threshold alerts.",
+  "package": "packages/decision-window-1.0.0.json",
+  "endpoint": "https://raw.githubusercontent.com/maxnomadpro/max-github-test/v3.0.0/packages/decision-window-1.0.0.json",
+  "content_type": "application/json",
+  "integrity": "sha256:see-package-contents",
+  "usage": "Fetch endpoint; validate input/output against schemas; implement algorithm locally."
 }

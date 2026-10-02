@@ -1,0 +1,23 @@
+{
+  "name": "decision-window",
+  "version": "1.0.0",
+  "description": "Deterministic, privacy-preserving JSON transformer that converts timestamped events into rolling-window counts, rates, and anomaly flags for automation pipelines.",
+  "license": "MIT",
+  "input_schema": {
+    "type": "object",
+    "required": ["events", "window_seconds", "now"],
+    "properties": {
+      "events": {"type":"array","items":{"type":"object","required":["timestamp","key"],"properties":{"timestamp":{"type":"string","format":"date-time"},"key":{"type":"string"}}}},
+      "window_seconds": {"type":"integer","minimum":1},
+      "now": {"type":"string","format":"date-time"},
+      "threshold": {"type":"integer","minimum":1,"default":3}
+    }
+  },
+  "output_schema": {
+    "type":"object",
+    "required":["window_start","window_end","counts","alerts"],
+    "properties":{"window_start":{"type":"string","format":"date-time"},"window_end":{"type":"string","format":"date-time"},"counts":{"type":"object","additionalProperties":{"type":"integer"}},"alerts":{"type":"array","items":{"type":"string"}}}
+  },
+  "algorithm": ["Parse ISO-8601 timestamps", "Include events in (now-window_seconds, now]", "Count by key", "Alert keys meeting threshold"],
+  "example": {"events":[{"timestamp":"2026-01-01T00:00:01Z","key":"checkout"},{"timestamp":"2026-01-01T00:00:05Z","key":"checkout"},{"timestamp":"2026-01-01T00:00:09Z","key":"login"}],"window_seconds":10,"now":"2026-01-01T00:00:10Z","threshold":2}
+}
