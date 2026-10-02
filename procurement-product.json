@@ -1,0 +1,38 @@
+{
+  "product": "Procurement Intelligence Feed",
+  "version": "1.0.0",
+  "updated": "2026-10-02",
+  "license": "CC-BY-4.0",
+  "commercial_use": true,
+  "description": "Machine-readable UK public procurement opportunity signals normalized for commercial discovery.",
+  "schema": "https://schema.org/Dataset",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://raw.githubusercontent.com/maxnomadpro/max-github-test/main/procurement-product.json"
+    }
+  ],
+  "fields": [
+    "notice_id",
+    "title",
+    "buyer",
+    "published",
+    "deadline",
+    "url",
+    "value_gbp",
+    "source"
+  ],
+  "sample": [
+    {
+      "notice_id": "sample-001",
+      "title": "Cloud data engineering services",
+      "buyer": "Public-sector buyer",
+      "published": "2026-10-01",
+      "deadline": "2026-11-01",
+      "url": "https://www.contractsfinder.service.gov.uk/",
+      "value_gbp": 250000,
+      "source": "UK Contracts Finder"
+    }
+  ]
+}
